@@ -1,0 +1,469 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* color: #fff; */
+}
+body{
+    padding: 0 10px;
+    font-family: 'Segoe UI', sans-serif;
+    letter-spacing: 1.3px;
+}
+/* === HERO BASE === */
+header {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+/* === BACKGROUND SLIDER === */
+header .background {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  animation: slideImages 15s infinite;
+}
+
+header .background img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  flex-shrink: 0;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  animation: fadeImages 15s infinite;
+}
+
+header .background img:nth-child(1) { animation-delay: 0s; }
+header .background img:nth-child(2) { animation-delay: 5s; }
+header .background img:nth-child(3) { animation-delay: 10s; }
+
+@keyframes fadeImages {
+  0%, 100%   { opacity: 0; }
+  5%, 30%    { opacity: 1; }
+  35%, 100%  { opacity: 0; }
+}
+
+/* === MENU === */
+header .menu,
+header .cart,
+header .name {
+  position: absolute;
+  z-index: 10;
+}
+
+header .menu {
+  top: 20px;
+  left: 20px;
+  width: 35px;
+  padding: 5px;
+  border: 1px solid #fff;
+  cursor: pointer;
+  background: rgba(0,0,0,0.4);
+  border-radius: 5px;
+  z-index: 101;
+}
+header .menu hr {
+  margin: 4px 0;
+  border: none;
+  height: 2px;
+  background: #fff;
+}
+.dropdown-menu {
+  position: fixed;
+  top: -100%;
+  left: 0;
+  right: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.9); /* transparent black */
+  color: white;
+  padding: 100px 20px 30px ;
+  z-index: 100;
+  transition: top 0.5s ease;
+}
+
+.dropdown-menu ul {
+  list-style: none;
+  padding: 0;
+}
+
+.dropdown-menu ul li {
+  margin: 10px 0;
+}
+
+.dropdown-menu ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.dropdown-menu ul li a:hover {
+  text-decoration: underline;
+}
+
+.collectionMenu {
+  margin-left: 20px;
+  margin-top: 5px;
+}
+
+.dropdown-menu.show {
+  top: 0;
+}
+
+
+/* === CART === */
+header .cart {
+  top: 20px;
+  right: 20px;
+  width: 50px;
+  height: 40px;
+  cursor: pointer;
+  background: rgba(0,0,0,0.4);
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+header .cart svg {
+  width: 24px;
+  height: 24px;
+  fill: white;
+}
+header .cartCount {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background: red;
+  color: #fff;
+  font-size: 12px;
+  padding: 2px 6px;
+  border-radius: 50%;
+  font-weight: bold;
+}
+
+/* === BRAND NAME === */
+header .name {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 10;
+}
+header .name h1 {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.8);
+}
+header .name p {
+  font-size: 1.2rem;
+  letter-spacing: 1px;
+  text-shadow: 1px 1px 6px rgba(0,0,0,0.7);
+}
+.scrolling-text {
+  overflow: hidden;
+  white-space: nowrap;
+  position: relative;
+  height: 3rem;
+  margin: 5px;
+  background: #0000000c; /* Or use a soft background if desired */
+}
+.scrolling-text p{
+  animation: scrollRight 20s linear infinite;
+}
+.scrolling-text p span{
+  color: #0a0a0a;
+  font-weight: 500;
+  font-size: 1.5rem;
+  display: inline-block;
+}
+
+@keyframes scrollRight {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.collections{
+    margin: 10px 0;
+}
+h2{
+    color: #0a0a0a;
+    text-align: center;
+    margin: 5px;
+}
+
+/* Container styling for flex layout */
+.categories {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  gap: 2rem;
+  padding: 1rem;
+}
+
+/* Base style for category cards */
+.category {
+  width: 90%;
+  height: 350px;
+  position: relative;
+  opacity: 0;
+  border: 3px solid #333;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  transition: transform 1s ease, box-shadow 0.3s ease;
+}
+
+.category img:hover{
+    transition: transform 0.6s ease, box-shadow 0.6s ease;
+}
+/* Hover effect */
+.category img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+/* Image styling */
+.category img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Category label */
+.category .cat-txt {
+  position: absolute;
+  bottom: 10px;
+  left: 40%;
+  color: white;
+  font-weight: bold;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 0.4em 0.8em;
+  border-radius: 5px;
+}
+
+/* Slide-in directions before animation */
+.category:nth-child(odd) {
+  transform: translateX(-50px);
+}
+.category:nth-child(even) {
+  transform: translateX(50px);
+}
+
+/* Triggered animation */
+.category.animate {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Animation delays */
+.category.animate:nth-child(1) { animation-delay: 0.1s; }
+.category.animate:nth-child(2) { animation-delay: 0.3s; }
+.category.animate:nth-child(3) { animation-delay: 0.5s; }
+.category.animate:nth-child(4) { animation-delay: 0.7s; }
+.category.animate:nth-child(5) { animation-delay: 0.9s; }
+
+/* Tablet screens */
+@media (min-width: 600px) {
+  .category {
+    width: 80%;
+  }
+}
+
+/* Desktop screens */
+@media (min-width: 900px) {
+  .category {
+    width: 40%;
+    transform: scale(0.95);
+  }
+
+  .category:nth-child(odd),
+  .category:nth-child(even) {
+    transform: scale(0.95);
+  }
+
+  .category.animate {
+    animation: fadeIn 1s ease forwards;
+  }
+}
+
+/* Fade in animation for large screens */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+footer {
+  background-color: #0000000c;
+  padding: 40px 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+footer h3 {
+  margin-bottom: 15px;
+  font-weight: 600;
+  color: #000;
+}
+
+footer .links,
+footer .policies {
+  flex: 1 1 300px;
+  min-width: 200px;
+  text-align: center;
+}
+
+footer li {
+  list-style: none;
+  margin-bottom: 8px;
+}
+
+footer a {
+  text-decoration: none;
+  color: #000;
+  transition: color 0.3s ease;
+}
+
+footer a:hover {
+  color: #444;
+}
+
+footer .collectionMenu {
+  padding-left: 50px;
+  margin-top: 8px;
+}
+
+footer .collectionMenu li {
+  margin-bottom: 6px;
+}
+
+footer .copyright {
+  flex: 1 1 100%;
+  text-align: center;
+  margin-top: 30px;
+  color: #000;
+}
+
+/* === Container for all items === */
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Item card styles */
+.item {
+  background-color: #fff;
+  border: 1px solid #eee;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: box-shadow 0.3s ease;
+  position: relative;
+}
+
+.item:hover {
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Make the entire card clickable (button stays out of link) */
+.item a {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  padding-bottom: 3rem; /* leaves space for the button */
+}
+
+/* Product image */
+.item-img {
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+}
+
+.item-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.item:hover .item-img img {
+  transform: scale(1.05);
+}
+
+/* Text block */
+.item-txt {
+  padding: 1rem;
+  text-align: center;
+}
+
+.item-txt h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.item-txt p {
+  font-size: 0.95rem;
+  color: #555;
+}
+
+/* Add to cart button */
+.item button {
+  position: absolute;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 0.6rem 1.2rem;
+  background-color: #111;
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  z-index: 1;
+}
+
+.item button:hover {
+  background-color: #333;
+}
+.pagination-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+.pagination-controls button {
+  padding: 0.5rem 1rem;
+  background-color: black;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.pagination-controls button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}

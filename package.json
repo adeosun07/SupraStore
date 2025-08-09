@@ -1,0 +1,17 @@
+{
+  "name": "supra-store",
+  "version": "1.0.0",
+  "description": "A clothing store",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "nodemon index.js"
+  },
+  "author": "adeosun",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^17.2.1",
+    "ejs": "^3.1.10",
+    "express": "^5.1.0"
+  }
+}

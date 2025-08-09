@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/style.css">
+    <style>
+        header {
+            height: 13vh;
+            background-color: #0000000c;
+        }
+        main {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .product-img {
+            text-align: center;
+        }
+
+        .mainImg img {
+            width: 350px;
+            height: auto;
+            border-radius: 8px;
+            border: 2px solid #ccc;
+        }
+
+        .subImages {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .subImages img {
+            width: 80px;
+            height: auto;
+            border-radius: 5px;
+            border: 2px solid #ccc;
+            cursor: pointer;
+            transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+
+        .subImages img:hover {
+            transform: scale(1.05);
+            border-color: #000;
+        }
+
+        .subImages img.active {
+            border: 3px solid #323233; /* Highlight border */
+            box-shadow: 0 0 5px rgba(99, 99, 100, 0.6);
+        }
+
+        .product-details {
+            text-align: center;
+            margin-top: 20px;
+            line-height: 1.5;
+        }
+        .reviews {
+            line-height: 1.2;
+        }
+        .reviews h3 {
+            margin: 10px 0;
+        }
+
+        button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #222;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #555;
+        }
+
+        .reviews {
+            max-width: 600px;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="menu" id="menuToggle">
+          <hr />
+          <hr />
+          <hr />
+        </div>
+        <div class="dropdown-menu" id="dropdownMenu">
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li>Collections
+              <ul class="collectionMenu">
+                <li><a href="/hoodie">Hoodies</a></li>
+                <li><a href="/sweatshirt">Sweatshirt</a></li>
+                <li><a href="/tshirt">T-shirts</a></li>
+                <li><a href="/jean">Jean Wears</a></li>
+                <li><a href="/sneaker">Sneakers</a></li>
+              </ul>
+            </li>
+            <li><a href="/">Best Sellers</a></li>
+            <li><a href="/contact">Contact us</a></li>
+            <li><a href="/about">About us</a></li>
+          </ul>
+        </div>
+        <div class="cart">
+          <svg width="81" height="81" class="menu-icon" fill="#fff" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M7 8V6a5 5 0 1 1 10 0v2h3a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1h3Zm0 2H5v10h14V10h-2v2h-2v-2H9v2H7v-2Zm2-2h6V6a3 3 0 0 0-6 0v2Z"></path>
+          </svg>
+          <span class='cartCount'>0</span>
+        </div>
+    </header>
+    <main>
+       <section class="product-img">
+            <div class="mainImg">
+                <img src="/images/sweatshirtA2.jpg" alt="sweatshirt"id="displayImage">
+            </div>
+            <div class="subImages">
+                <div class="subImage1">
+                    <img src="/images/sweatshirtA2.jpg" alt="sweatshirt" class="thumb active">
+                </div>
+                <div class="subImage2">
+                    <img src="/images/sweatshirtA4.jpg" alt="sweatshirt" class="thumb">
+                </div>
+                <div class="subImage3">
+                    <img src="/images/sweatshirtA5.jpg" alt="sweatshirt" class="thumb   ">
+                </div>
+            </div>
+        </section>
+        <section class="product-details">
+            <h3>Sweatshirt</h3>
+            <p><strong>&#8358;30,000</strong></p>
+            <hr>
+            <p><small>A sweatshirt with design inspired by nature. </small></p>
+            <label for="Colors">Select color:</label>
+            <select name="colors" id="colors">
+                <option value="white">White</option>
+                <option value="green">Green</option>
+                <option value="black">Black</option>
+            </select>
+        </section>
+        <button>Add To Cart</button>
+        <section class="reviews">
+            <h3>Customer reviews</h3>
+            <h4>Adeosun Oluwatimileyin</h4>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos, quisquam. Praesentium nam at quae, quam iste maxime quo nihil veritatis eum expedita deleniti incidunt deserunt nostrum. Error quasi repudiandae dolore!</p>
+            <br>
+            <h4>Adeosun Aramide</h4>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos, quisquam. Praesentium nam at quae, quam iste maxime quo nihil veritatis eum expedita deleniti incidunt deserunt nostrum. Error quasi repudiandae dolore!</p>
+        </section>
+    </main>
+<%- include("partials/footer") %>
